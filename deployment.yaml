@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: cloud-build-lesson-2
+spec:
+ replicas: 2
+ selector:
+   matchLabels:
+     name: cloud-build-lesson-2
+ template:
+   metadata:
+     labels:
+       name: cloud-build-lesson-2
+   spec:
+     containers:
+     - name: cloud-build-lesson-2
+       image: gcr.io/study-sandbox/cloud-build-lesson-2:latest
+       ports:
+       - containerPort: 8080
+         protocol: TCP
+ revisionHistoryLimit: 100
+
